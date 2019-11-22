@@ -30,16 +30,15 @@ input {
 
 .label {
     fill: #5C5C5C;
-    font-size: 15pt;
+    font-size: 19pt;
     font-family: "Fira Code", "Source Han Sans CN";
     font-weight: bold
 }
 
 .dateLabel {
-
     fill: #5C5C5C;
     display: table-cell;
-    font-size: 60pt;
+    font-size: 40pt;
     font-weight: bold;
     font-family: "Fira Code", "Source Han Sans CN"
 }
@@ -83,10 +82,15 @@ input {
 }
 
 .barInfo {
-    fill: #FFFFFF;
+    fill: rgb(255, 255, 255);
+    /* stroke: #0471a8; */
+    stroke-width: 1.3pt;
     font-weight: 800;
-    font-size: 24pt;
-    font-family: "Fira Code", "Source Han Sans CN"
+    font-size: 30pt;
+    /* font-family: "Fira Code", "Source Han Sans CN", */
+    
+    font-family: 黑体
+    
 }
 
 .axis-label {

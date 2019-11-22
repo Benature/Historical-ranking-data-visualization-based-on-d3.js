@@ -12,6 +12,11 @@
 $("#inputfile").change(function () {
   $("#inputfile").attr("hidden", true);
   var r = new FileReader();
+
+  // var file_path = "D:/Coding/Github/09_HaveFun/Historical-ranking-data-visualization-based-on-d3.js/data/university_rank_USA.csv";
+  // r.readAsText(file_path, config.encoding);
+
+  // console.log(this.files[0]);
   r.readAsText(this.files[0], config.encoding);
   r.onload = function () {
     //读取完成后，数据保存在对象的result属性中
@@ -59,7 +64,9 @@ function draw(data) {
     var r = 0.0;
     if (changeable_color) {
       var colorRange = d3.interpolateCubehelix(config.color_range[0], config.color_range[1]);
+      // console.log(d["type"], config.color_ranges, "还是个宝宝" in config.color_ranges);
       if (divide_changeable_color_by_type && d["type"] in config.color_ranges) {
+        console.log("divide by type");
         var colorRange = d3.interpolateCubehelix(config.color_ranges[d["type"]][0], config.color_ranges[d["type"]][1]);
       }
       var v =
@@ -444,7 +451,8 @@ function draw(data) {
       } else if (use_type_info == true) {
         // 榜首type更新
         top_type.data(currentData).text(function (d) {
-          return d["type"];
+          // return d["type"];
+          return d["value"];
         });
       }
     }
@@ -713,9 +721,9 @@ function draw(data) {
         var str = d[divide_by] + "-" + d.name + "  数值:";
 
         var i = d3.interpolate(
-            self.textContent.slice(str.length, 99),
-            Number(d.value)
-          ),
+          self.textContent.slice(str.length, 99),
+          Number(d.value)
+        ),
           prec = (Number(d.value) + "").split("."),
           round = prec.length > 1 ? Math.pow(10, prec[1].length) : 1;
         return function (t) {
@@ -861,3 +869,20 @@ function draw(data) {
   //         .each(change)
   // }, baseTime * update_rate * interval_time)
 }
+
+
+// var r = new FileReader();
+
+// var file_path = "D:/Coding/Github/09_HaveFun/Historical-ranking-data-visualization-based-on-d3.js/data/university_rank_USA.csv";
+// r.readAsText(file_path, config.encoding);
+
+// // r.readAsText(this.files[0], config.encoding);
+// r.onload = function () {
+//   //读取完成后，数据保存在对象的result属性中
+//   var data = d3.csvParse(this.result);
+//   try {
+//     draw(data);
+//   } catch (error) {
+//     alert(error);
+//   }
+// };

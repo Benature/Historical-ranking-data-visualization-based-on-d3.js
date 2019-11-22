@@ -9,7 +9,7 @@
   encoding: "UTF-8",
 
   // 每个时间节点最多显示的条目数。
-  max_number: 20,
+  max_number: 15,
 
   // 控制是否显示顶部附加信息文字。
   showMessage: true,
@@ -21,10 +21,11 @@
   // 开启auto_sort可以实现时间的自动补间。
   // Auto Sort by Time
   // Please ensure using standard datetime format (YYYY-MM-DD HH:MM) when this term is enabled!!!
-  auto_sort: false,
+  auto_sort: true,
 
   // 时间格式化
-  timeFormat: "%Y-%m-%d",
+  // timeFormat: "%Y-%m-%d",
+  timeFormat: "%Y-%m-%d %H:%M",
 
   // 倒序，使得最短的条位于最上方
   reverse: false,
@@ -33,36 +34,29 @@
   divide_by: 'type',
 
   // 颜色根据什么字段区分？
-  divide_color_by: 'name',
+  divide_color_by: 'type',
 
   // 字段的值与其对应的颜色值
   color: {
-    "Chinese": "#1177CC",
-    "Japanese": "#667788"
+    "还是个宝宝": "#1177CC",
+    "幼儿园小班": "#667788"
   },
 
   // 颜色渐变：颜色绑定增长率
-  changeable_color: false,
+  changeable_color: true,
 
   // 添加功能：不同类型的增长率所用渐变色不同(暗→亮)
   // 如果该项为false，那么所有条目全部按照color_range变色
   // 如果该项为true，那么按照src/color_ranges.js中的color_ranges变色，默认色板为color_range
   // 一个具体的设置模板见src/_color_ranges.js，将其更名为color_ranges.js再设置即可
   divide_changeable_color_by_type: false,
-  color_range: ['#ff7e5f', '#feb47b'],
-
-
-  // 附加信息内容。
-  // left label
-  itemLabel: "左侧文字",
-
-  // right label
-  typeLabel: "右侧文字",
+  color_range: ['#0471a8', '#3a7bd5'],
+  // color_ranges: ['还是个宝宝, 幼儿园小班'],
 
 
   // 榜首项目信息的水平位置 。
   // Top item information horizontal location
-  item_x: 250,
+  item_x: 200,
 
   // 时间点间隔时间。
   interval_time: 1,
@@ -79,6 +73,13 @@
   // Hide barInfo if bar is shorter than barInfo
   display_barInfo: 0,
 
+  // 附加信息内容。
+  // left label
+  itemLabel: "大佬",
+
+  // right label
+  typeLabel: "屠榜分数",
+
   // 使用计数器
   // 注意！使用计时器和使用类型目前不能兼容，即不能同时开启！
   // 计数器会出现在右上角，记录着当前榜首的持续时间。
@@ -94,8 +95,8 @@
   // '.2f' means keeping two decimals.
   format: ",.0f",
 
-  // 后缀
-  postfix: "",
+  // 分数后缀
+  postfix: " coins",
 
   // 如果看不懂这是在干什么的话，建议不要修改这里。
   // 反格式化函数:
@@ -119,7 +120,7 @@
   dateLabel_y: null,
 
   // 允许大于平均值的条消失时上浮。
-  allow_up: false,
+  allow_up: true,
 
   // 所有条目上浮 - 用于反向排行榜等情况
   always_up: false,
@@ -144,12 +145,12 @@
 
   // 开启匀速动画效果
   // animation:'linear',
-  showLabel: false,
+  showLabel: true,
 
   // label x轴位置
   labelx: -10,
 
-  use_img: true,
+  use_img: false,
 
   // 图片路径，本地图片或者网上图片。
   // 也可在imgs.js中配置。
@@ -159,6 +160,7 @@
   },
 
   // 全局背景颜色
+  // background_color: "#dddddd",
   background_color: "#FFFFFF",
 
   // 矩形柱是否为圆角矩形
